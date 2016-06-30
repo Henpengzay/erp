@@ -1,0 +1,138 @@
+1准备
+
+
+（1）、创建代码仓库
+	
+	1、配置身份 （在提交代码的时候可以确认身份,姓名和邮箱）
+
+		git config --global user.name "Smith"
+		git config --global user.email "Smith@gmail.com"
+
+	2、创建仓库  （保管代码，代码会先提交到这个仓库，之后再推送到远程仓库）
+		
+		在自定义路径下新建一个文件夹，直接使用
+		git init
+			
+	3、创建结束
+
+		此时新建的文件夹就是作为仓库使用，完成后会有.git文件夹（用于记录git操作）
+
+（2）、提交本地代码（添加→提交，这个操作只是将代码提交到本地仓库）
+	
+	1、添加
+
+		1.1添加文件
+
+			git add test.xml 
+	
+		1.2、添加文件夹
+		
+			git add src
+	
+		1.3、添加所有文件
+	
+			git add .
+
+	2、提交
+
+		git commit -m "First commit"
+
+		("First commit" 为提交代码时候的说明，必须加)
+
+
+
+
+
+
+
+2分支（版本控制中非常重要的一部分,分支中的修改和提交并不会互相影响，主分支一般为master）
+
+（1）、查看已有分支 (分支前显示星号为当前所在分支)
+	
+	git branch -a
+	
+（2）、创建分支 (创建一个名为version的分支)
+
+	git branch version1.1	
+
+（3）、切换分支 （将焦点切换到新建的分支version1.1上）
+
+	git checkout version1.1
+
+（4）、分支同步（将一个分支上的修改并提交的内容合并到另一个分支上,如将version1.1的修改合并到master上）
+	
+	git checkout master
+	git merge version1.1
+
+
+
+
+	
+3与远程版本库协作（例如，有一个远程版本库的地址是https://github.com/exmaple/test.git）
+
+（1）下载代码到本地
+	
+	git clone https://github.com/exmaple/test.git
+  	
+	
+（2）将本地的内容同步到远程版本库(origin指定远程版本库的地址，master是指定的分支为master分支)
+
+	git push origin master
+
+（3）将远程版本库的修改同步到本地（两种方法）
+
+	
+	1获取代码，查看修改，合并到本地
+
+		git fetch origin master (将代码同步到本地，但会存放到一个名为origin/master的分支上)
+
+		git diff origin/master (用于查看远程版本库修改了什么)
+
+		git merge origin/master (同将origin/master分支上的修改合并到主分支上)
+
+	2获取代码并合并到本地
+		
+		git pull origin master 	
+
+
+
+
+
+4补充说明
+
+（1）密匙 （包含私匙和公匙）
+	
+	使用git的过程中为了保证提交者的真实性，设置密匙是有必要的。
+	
+	每个ip在使用git最好生成一次密匙，把公匙的部分提交给git，否则git在提交的时候可能会失败。
+	
+（2）查看密匙
+	
+	查看本地是否已生成密匙
+	
+	cd ~/.ssh
+	
+	能进入到相应目录下，说明已有密匙，可选择删除重建或者直接提交公匙
+
+（3）生成密匙
+
+	ssh-keygen -b 1024 -t rsa -c“Smith-dog@gmail.com”
+
+	-b为密匙对长度，-t为加密方式
+
+	生成过程中可生成密码，不使用密码可以直接使用enter键跳过
+
+（4）添加到github
+
+	1、首先打开Key保存的位置，里面会有三个文件，找到id_rsa.pub，用文本编辑器打开，复制里面的全部字符。
+
+	2、到GitHub，在右上方工具栏里找到Settings，点击进入。
+
+	3、在这个页面上有一个SSH Public Keys标签，选择Add another public key。Title可以随便填一个，Key就粘贴刚才的字符，提交。
+
+
+
+
+
+
+
