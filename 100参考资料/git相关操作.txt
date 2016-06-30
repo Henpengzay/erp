@@ -73,13 +73,30 @@
 （1）下载代码到本地
 	
 	git clone https://github.com/exmaple/test.git
-  	
+
+
+（2）移除远程仓库
+
+	git remote rm origin
+
+
+（3）设置远程仓库origin(后面为git@github.com[github仓库地址])(设置远程仓库前必须先移除原有的仓库，移除后再添加仓库)
 	
-（2）将本地的内容同步到远程版本库(origin指定远程版本库的地址，master是指定的分支为master分支)
+	git add git remote add origin git@github.com:Henpengzay/erp.git
+
+（4）查看远程仓库
+	
+	git remote 
+
+	git remote -v     (可以查看详细信息)
+
+	
+	
+（5）将本地的内容同步到远程版本库(origin指定远程版本库的地址，master是指定的分支为master分支)
 
 	git push origin master
 
-（3）将远程版本库的修改同步到本地（两种方法）
+（6）将远程版本库的修改同步到本地（两种方法）
 
 	
 	1获取代码，查看修改，合并到本地
