@@ -11,6 +11,7 @@
 	<modules>
 		<module>../erp_crm</module>
 		<module>../erp_jxc</module>
+		<module>../erp_dao</module>
 	</modules>
 	<name>erp_base</name>
 	
