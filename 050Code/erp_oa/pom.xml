@@ -19,10 +19,17 @@
   
   
   <dependencies>
-    <dependency>
+    	<dependency>
       		<groupId>junit</groupId>
       		<artifactId>junit</artifactId>
       		<scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+	    	<groupId>com.henpengzay.erp</groupId>
+	    	<artifactId>erp_dao</artifactId>
+	    	<version>0.0.1-SNAPSHOT</version>
+  			<type>jar</type>
 	    </dependency>
 	    
 	    <!-- 日志 -->
@@ -128,5 +135,17 @@
   </dependencies>
   <build>
     <finalName>erp_oa</finalName>
+    <plugins>  
+        <!-- define the project compile level -->  
+        <plugin>  
+            <groupId>org.apache.maven.plugins</groupId>  
+            <artifactId>maven-compiler-plugin</artifactId>  
+            <version>2.3.2</version>  
+            <configuration>  
+                <source>1.7</source>  
+                <target>1.7</target>  
+            </configuration>  
+        </plugin>  
+    </plugins>
   </build>
 </project>

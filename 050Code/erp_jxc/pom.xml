@@ -20,6 +20,13 @@
       		<scope>test</scope>
 	    </dependency>
 	    
+	    <dependency>
+	    	<groupId>com.henpengzay.erp</groupId>
+	    	<artifactId>erp_dao</artifactId>
+	    	<version>0.0.1-SNAPSHOT</version>
+  			<type>jar</type>
+	    </dependency>
+	    
 	    <!-- 日志 -->
 	    <dependency>
 	    	<groupId>org.slf4j</groupId>
