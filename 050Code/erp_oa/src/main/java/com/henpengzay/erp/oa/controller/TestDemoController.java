@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.henpengzay.erp.entity.TestDemo;
 import com.henpengzay.erp.oa.service.TestDemoService;
 
@@ -22,6 +24,13 @@ public class TestDemoController {
 	public String list(Model model){
 		List<TestDemo> list = service.queryAll(0, 2);
 		model.addAttribute("list", list);
-		return "list";
+		return "dd/list";
+	}
+	
+	@RequestMapping(value = "/json", method = RequestMethod.GET, produces="application/json")
+	@ResponseBody
+	public Object json(){
+		List<TestDemo> list = service.queryAll(0, 4);
+		return list;
 	}
 }
